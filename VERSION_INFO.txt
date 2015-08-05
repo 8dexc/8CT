@@ -1,0 +1,37 @@
+
+
+      █████╗  ██████╗████████╗
+     ██╔══██╗██╔════╝╚══██╔══╝
+     ╚█████╔╝██║        ██║   
+     ██╔══██╗██║        ██║   
+     ╚█████╔╝╚██████╗   ██║   
+      ╚════╝  ╚═════╝   ╚═╝   
+                  
+   8dexc's Cryptography Toolbox
+
+==============
+  Indev v1.0
+==============
+~+ Stream Cipher Encryption/Decryption
+    + RC4 Generator
+    + Easily implementable PRNG structure
+    ~+ File I/O
+    ~+ Basic UI
+~+ .0ef File Header
+    ~+ Original filetype
+
+==============
+   BUG LIST
+==============
+
+
+==============
+ FUTURE PLANS
+==============
+* File archival
+* Steganographic creation
+* Steganographic analysis
+* ncurses GUI 
+
+__________________________________________________________________ 
+ (+) = added; (-) = removed; (:) = modified; (~) = in development
