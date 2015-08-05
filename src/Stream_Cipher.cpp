@@ -21,6 +21,7 @@ bool exists (const std::string& name)   // Checks if a file exists at the given 
 
 void set_algorithm (Algorithm a)        // Sets prng to the address of the object of the specified algorithm
 {
+    using namespace crypt;
     switch(a)
     {
         case ALGORITHM_RC4:
@@ -29,8 +30,9 @@ void set_algorithm (Algorithm a)        // Sets prng to the address of the objec
     }
 }
 
-Result load_file (std::string path)     // If specified file does not exist, return error 2
+Result load_file (const char *path)     // If specified file does not exist, return error 2
 {                                       // Else open file into file input stream
+    using namespace crypt;
     if(!exists(path))
     {
         return RESULT_READ_ERROR;
@@ -39,8 +41,9 @@ Result load_file (std::string path)     // If specified file does not exist, ret
     return RESULT_SUCCESS;
 }
 
-Result set_out_file (std::string path)  // If specified file already exists and overwriting is disabled, return error 1
+Result set_out_file (const char *path)  // If specified file already exists and overwriting is disabled, return error 1
 {                                       // Else open file into file output stream
+    using namespace crypt;
     if(exists(path) && !overwrite)
     {
         return RESULT_DESTINATION_ERROR;
@@ -51,17 +54,17 @@ Result set_out_file (std::string path)  // If specified file already exists and 
 
 void set_direction (Direction dir)      // Sets whether the program will be encrypting a file or decrypting a 0ef
 {
-    direction = dir;
+    crypt::direction = dir;
 }
 
 void set_passwd (std::string pass)      // Sets password that is used to seed PRNG
 {
-    password = pass;
+    crypt::password = pass;
 }
 
 Result encrypt ()                       // Performs XOR on byte read from file and corresponding pseudorandom byte
 {                                       // Directly writes result to output file until EOF
-    using namespace std;
+    using namespace crypt;
     switch(direction)
     {
     case DIRECTION_ENCRYPT:
@@ -75,7 +78,7 @@ Result encrypt ()                       // Performs XOR on byte read from file a
     while(infile)
     {
         uint8_t kb, ptb, ctb;           // Generates ciphertext byte (ctb) from XOR of plaintext byte (ptb) and key byte (kb)
-        uint8_t ctb = ptb ^ kb;
+        ctb = ptb ^ kb;
     }
     return RESULT_SUCCESS;
 }
