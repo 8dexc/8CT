@@ -11,6 +11,6 @@ Soon this will be a thing and it will have **_cool features_** such as:
 - Image Steganography
 - Audio Steganography
 - Experimental Steganography
-- Steganographic Analizer
+- Steganographic Analyzer
 
 All in one nifty package!
