@@ -1,5 +1,5 @@
 #include <sys/stat.h>
-#include "Encryption.h"
+#include "Stream_Cipher.h"
 
 /********************************
 *                               *

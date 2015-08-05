@@ -1,5 +1,5 @@
-#ifndef ENCRYPTION_H
-#define ENCRYPTION_H
+#ifndef STREAM_CIPHER_H
+#define STREAM_CIPHER_H
 #include <string>
 #include <iostream>
 #include <fstream>
