@@ -17,8 +17,9 @@
     + Easily implementable PRNG structure
     ~+ File I/O
     ~+ Basic UI
-~+ .0ef File Header
-    ~+ Original filetype
+~+ .8ef File Header
+    ~+ Cipher indentifier [cleartext]
+    ~+ Original filetype  [ciphertext]
 
 ==============
    BUG LIST
