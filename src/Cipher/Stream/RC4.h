@@ -3,9 +3,9 @@
 
 #include <string>
 #include <stdint.h>
-#include "PRNG.h"
+#include "Stream_Cipher.h"
 
-class RC4: public PRNG
+class RC4: public Stream_Cipher
 {
 private:
     unsigned int i;

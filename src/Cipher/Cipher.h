@@ -1,5 +1,5 @@
-#ifndef STREAM_CIPHER_H
-#define STREAM_CIPHER_H
+#ifndef CIPHER_H
+#define CIPHER_H
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -19,37 +19,45 @@ enum Direction
     DIRECTION_DECRYPT
 };
 
-enum Algorithm
+enum Stream_Cipher
 {
-    ALGORITHM_RC4
+    SC_RC4
 };
 
+class Cipher_t
+{
 
-namespace crypt
+};
+
+namespace Cipher
 {
 
     Direction direction     // Direction of function (Encrypt or Decrypt)
         = DIRECTION_ENCRYPT;
 
-    RC4 rc4;                // Objects of selectable PRNGs
+    RC4 rc4;                // Objects of selectable Stream Ciphers
 
-    PRNG *prng;             // Points to PRNG derived object (used for all interactions with selected PRNG)
+    Cipher_t *cipher;       // Points to Cipher_t derived object
 
     bool overwrite = false; // User-given permission to overwrite existing file in output path
 
-    std::string password;   // User input password that is used to seed PRNG
+    std::string password;   // User input password that is used for cipher key
 
     std::ifstream infile;   // File I/O streams
     std::ofstream outfile;
     
     // Internally Accessed Functions
-    
+    //////////////////////////////////
+    bool    exists          (const std:string& name);
+    Result  inject_header   ();
+    Result  extract_header  ();
 
     // Externally Accessed Functions
-    Result load_file     (std::string filepath);
-    Result set_out_file  (std::string filepath);
-    void   set_direction (Direction d);
-    void   set_passwd    (std::string password);
-    Result encrypt       ();
+    //////////////////////////////////
+    Result  set_in_file     (std::string filepath);
+    Result  set_out_file    (std::string filepath);
+    void     set_direction  (Direction d);
+    void    set_passwd      (std::string password);
+    Result  encrypt         ();
 }
 #endif
